@@ -18,4 +18,25 @@ export class CoursesService {
             }
         })
     }
+
+    findAll() {
+        return this.prisma.course.findMany();
+    }
+
+    findOne(id: number) {
+        return this.prisma.course.findUnique({
+            where: { id }
+        });
+    }
+
+    update(id: number, dto: Partial<CreateCourseDto>) {
+        return this.prisma.course.update({
+            where: { id },
+            data: dto
+        });
+    }
+
+    remove(id: number) {
+        return this.prisma.course.delete({ where: { id } });
+    }
 }
