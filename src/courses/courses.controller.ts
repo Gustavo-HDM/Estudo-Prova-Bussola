@@ -18,8 +18,8 @@ export class CoursesController {
     }
 
     @Get(':id')
-    findOne(@Param('id') id: number) {
-        return this.courses.findOne(id);
+    findOne(@Param('id') id: string) {
+        return this.courses.findOne(Number(id));
     }
 
     @Patch(':id')
